@@ -24,10 +24,12 @@ import { Plugins } from '@capacitor/core'
 import { DeviceMotion } from '@ionic-native/device-motion/ngx'
 import { Diagnostic } from '@ionic-native/diagnostic/ngx'
 import { IonicModule, IonicRouteStrategy, Platform } from '@ionic/angular'
-import { IonicStorageModule } from '@ionic/storage'
+import { Drivers } from '@ionic/storage'
+import { IonicStorageModule } from '@ionic/storage-angular'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreModule } from '@ngrx/store'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -86,7 +88,7 @@ export function createTranslateLoader(http: HttpClient): AirGapTranslateLoader {
     }),
     IonicStorageModule.forRoot({
       name: '__airgap_storage',
-      driverOrder: ['sqlite', 'localstorage']
+      driverOrder: [CordovaSQLiteDriver._driver, Drivers.LocalStorage]
     }),
     WarningModalPageModule,
     IntroductionPageModule,

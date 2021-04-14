@@ -1,6 +1,7 @@
 import { BaseStorage } from '@airgap/angular-core'
 import { Injectable } from '@angular/core'
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage-angular'
+import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
 
 export enum VaultStorageKey {
   DISCLAIMER_GENERATE_INITIAL = 'DISCLAIMER_GENERATE_INITIAL',
@@ -37,5 +38,9 @@ const defaultValues: VaultStorageKeyReturnDefaults = {
 export class VaultStorageService extends BaseStorage<VaultStorageKey, VaultStorageKeyReturnType> {
   constructor(storage: Storage) {
     super(storage, defaultValues)
+  }
+
+  protected async init(): Promise<void> {
+    await this.storage.defineDriver(cordovaSQLiteDriver)
   }
 }
