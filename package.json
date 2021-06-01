@@ -32,8 +32,8 @@
     "apply-diagnostic-modules": "node apply-diagnostic-modules.js"
   },
   "dependencies": {
-    "@airgap/angular-core": "0.0.9-beta.20",
-    "@airgap/angular-ngrx": "0.0.9-beta.20",
+    "@airgap/angular-core": "0.0.11-beta.0",
+    "@airgap/angular-ngrx": "0.0.11-beta.0",
     "@airgap/coinlib-core": "0.11.1-beta.11",
     "@airgap/sapling-wasm": "0.0.6",
     "@angular/common": "^11.2.9",
@@ -52,8 +52,7 @@
     "@ionic-native/diagnostic": "^5.32.0",
     "@ionic/angular": "5.6.4",
     "@ionic/core": "^5.6.4",
-    "@ionic/storage": "3.0.4",
-    "@ionic/storage-angular": "^3.0.6",
+    "@ionic/storage": "2.2.0",
     "@ngrx/component-store": "^11.1.0",
     "@ngrx/effects": "^11.1.0",
     "@ngrx/store": "^11.1.0",
@@ -73,7 +72,6 @@
     "cordova.plugins.diagnostic": "6.0.3",
     "core-js": "^3.10.1",
     "js-sha3": "^0.8.0",
-    "localforage-cordovasqlitedriver": "^1.8.0",
     "moment": "^2.29.1",
     "myetherwallet-blockies": "^0.1.1",
     "ngx-moment": "^5.0.0",
