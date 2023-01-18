@@ -645,5 +645,13 @@
   "wordlist": {
     "title": "Wordlist",
     "search_placeholder": "Search..."
+  },
+  "keyboard": {
+    "paste": "Paste",
+    "add": "Add Word",
+    "delete": "Delete Word",
+    "shuffle": "Shuffle Keys",
+    "mask": "Mask Text",
+    "word_list": "Show Word List"
   }
 }
