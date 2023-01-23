@@ -15,7 +15,9 @@ import {
   SPLASH_SCREEN_PLUGIN,
   STATUS_BAR_PLUGIN,
   FILESYSTEM_PLUGIN,
-  UiEventService
+  UiEventService,
+  IsolatedModules,
+  ISOLATED_MODULES_PLUGIN
 } from '@airgap/angular-core'
 import { AirGapAngularNgRxModule, currencySymbolNgRxFacade } from '@airgap/angular-ngrx'
 import { PercentPipe } from '@angular/common'
@@ -130,6 +132,7 @@ export function createTranslateLoader(http: HttpClient): AirGapTranslateLoader {
     { provide: APP_CONFIG, useValue: appConfig },
     { provide: ZIP_PLUGIN, useValue: Zip },
     { provide: FILE_PICKER_PLUGIN, useValue: FilePicker },
+    { provide: ISOLATED_MODULES_PLUGIN, useValue: IsolatedModules },
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     Diagnostic,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
