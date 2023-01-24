@@ -108,7 +108,7 @@ export class ProtocolModuleService {
       const activeSubProtocols: [ICoinProtocolAdapter, ICoinSubProtocolAdapter][] = []
 
       const targetProtocols: Record<string, IsolatedProtocol> = module.protocols
-        .filter((protocol: IsolatedProtocol) => !ignore.has(protocol.identifier))
+        .filter((protocol: IsolatedProtocol) => !ignore.has(protocol.identifier) && protocol.mode === 'offline')
         .reduce((obj: Record<string, IsolatedProtocol>, next: IsolatedProtocol) => Object.assign(obj, { [next.identifier]: next }), {})
 
       for (const protocol of Object.values(targetProtocols)) {
@@ -121,7 +121,6 @@ export class ProtocolModuleService {
             activeProtocols[mainIdentifier] = mainAdapter
           }
 
-          console.log('main', activeProtocols[mainIdentifier], 'sub', adapter)
           activeSubProtocols.push([activeProtocols[mainIdentifier], adapter])
         } else {
           activeProtocols[protocol.identifier] = adapter
