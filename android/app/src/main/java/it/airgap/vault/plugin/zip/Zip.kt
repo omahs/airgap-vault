@@ -8,6 +8,7 @@ import com.getcapacitor.PluginCall
 import com.getcapacitor.PluginMethod
 import com.getcapacitor.annotation.CapacitorPlugin
 import it.airgap.vault.util.assertReceived
+import it.airgap.vault.util.executeCatching
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -24,7 +25,7 @@ class Zip : Plugin() {
 
     @PluginMethod
     fun unzip(call: PluginCall) {
-        with(call) {
+        call.executeCatching {
             assertReceived(Param.FROM, Param.TO)
 
             activity.lifecycleScope.launch {
